@@ -2,9 +2,11 @@
  <div class='wrapper'>
   <swiper :options="swiperOption" >
     <!-- slides -->
+    
     <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class='swiper-img' :src="item.imgUrl">
     </swiper-slide>
+    
     <!-- Optional controls -->
     <div class="swiper-pagination" slot="pagination"></div>
   </swiper>
@@ -12,23 +14,26 @@
  </div>
 </template>
 <script>
+import avatar1 from '@/assets/img/slide1.jpg'
+import avatar2 from '@/assets/img/slide2.jpg'
+import avatar3 from '@/assets/img/slide3.jpg'
 export default {
   name: "HomeSwiper",
   data () {
     return{
        swiperOption: {
           pagination:'.swiper-pagination',
-          loop:true
+          loop: true
       },
       swiperList:[{
          id:'0001',
-         imgUrl:'/static/img/slide1.d0cec51.jpg'
+         imgUrl:avatar1
       },{
          id:'0002',
-         imgUrl:'/static/img/slide2.5a57171.jpg'
+         imgUrl:avatar2
       },{
           id:'0003',
-           imgUrl:'/static/img/slide3.f1122ad.jpg'
+           imgUrl:avatar3
       }]
     }
   }
@@ -41,7 +46,7 @@ export default {
     width 100%
     height 0
     overflow  hidden
-    padding-bottom 32.5%   //保持宽高比自适应为32.5%
+    padding-bottom 26.5%   //保持宽高比自适应为32.5%
     .swiper-img
         width 100%
 </style>
