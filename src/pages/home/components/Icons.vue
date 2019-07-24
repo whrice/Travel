@@ -93,7 +93,7 @@ export default {
 <style lang="stylus" scoped>
 .icons >>> .swiper-container 
   height: 0;
-  padding-bottom: 50%;
+  padding-bottom: 40%;
   margin-top: 0.15rem;
 .icon 
   width: 25%;

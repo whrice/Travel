@@ -3,18 +3,21 @@
      <home-header></home-header>
      <home-swiper></home-swiper>
      <home-icons></home-icons>
+     <home-reco></home-reco>
   </div>
 </template>
 <script>
 import HomeHeader from './components/Header'
 import HomeSwiper from './components/Swiper'
 import HomeIcons  from './components/Icons' 
+import HomeReco  from './components/Reco'
 export default {
   name: "Home" ,//组件的名字
   components:{
       HomeHeader:HomeHeader,
       HomeSwiper,
-      HomeIcons
+      HomeIcons,
+      HomeReco
       //es6的对象中介值相等，可以简写：HomeHeader
   }
 };

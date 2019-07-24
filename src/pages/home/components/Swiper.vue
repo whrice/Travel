@@ -23,7 +23,7 @@ export default {
     return{
        swiperOption: {
           pagination:'.swiper-pagination',
-          loop: true
+         
       },
       swiperList:[{
          id:'0001',
