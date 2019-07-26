@@ -5,7 +5,7 @@
       猜你喜欢
     </div>
     <div class="items">
-      <div class="place" v-for='item of  recoList' :key='item.id'>
+      <div class="place" v-for='item of  list' :key='item.id'>
         <div class="like-img">
           <img :src='item.imgUrl' alt />
         </div>
@@ -20,36 +20,13 @@
   </div>
 </template>
 <script>
-import avatar1 from '@/assets/img/like/like1.jpg'
-import avatar2 from '@/assets/img/like/like2.jpg'
-import avatar3 from '@/assets/img/like/like3.jpg'
+
 export default {
   name: "HomeReco",
-  data (){
-      return{
-          recoList:[{
-              id:'0001',
-              imgUrl: avatar1 ,
-              title:'北京欢乐谷',
-              desc:'亚洲唯一飞行式过山车等你来挑战'
-          },{
-              id:'0002',
-              imgUrl: avatar1 ,
-              title:'北京欢乐谷',
-              desc:'亚洲唯一飞行式过山车等你来挑战'
-          },{
-              id:'0003',
-              imgUrl: avatar1 ,
-              title:'北京欢乐谷',
-              desc:'亚洲唯一飞行式过山车等你来挑战'
-          },{
-              id:'0004',
-              imgUrl: avatar1 ,
-              title:'北京欢乐谷',
-              desc:'亚洲唯一飞行式过山车等你来挑战'
-          }]
-      }
+  props:{
+    list:Array
   }
+ 
 };
 </script>
 <style lang="stylus" scoped>

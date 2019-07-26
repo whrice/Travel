@@ -1,9 +1,9 @@
 <template>
  <div class='wrapper'>
-  <swiper :options="swiperOption" >
+  <swiper :options="swiperOption" v-if='showSwiper'>
     <!-- slides -->
     
-    <swiper-slide v-for="item of swiperList" :key="item.id">
+    <swiper-slide v-for="item of list" :key="item.id">
         <img class='swiper-img' :src="item.imgUrl">
     </swiper-slide>
     
@@ -14,27 +14,23 @@
  </div>
 </template>
 <script>
-import avatar1 from '@/assets/img/slide1.jpg'
-import avatar2 from '@/assets/img/slide2.jpg'
-import avatar3 from '@/assets/img/slide3.jpg'
+
 export default {
   name: "HomeSwiper",
+  props:{
+    list:Array
+  }, 
   data () {
     return{
        swiperOption: {
           pagination:'.swiper-pagination',
          
-      },
-      swiperList:[{
-         id:'0001',
-         imgUrl:avatar1
-      },{
-         id:'0002',
-         imgUrl:avatar2
-      },{
-          id:'0003',
-           imgUrl:avatar3
-      }]
+      }
+    }
+  },
+  computed: {
+    showSwiper (){
+      return this.list.length
     }
   }
 };

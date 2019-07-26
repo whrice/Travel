@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for='(page,index) of pages' :key='index'>
         <div class="icon" v-for='item of page' :key='item.id'>
           <div class="icon-img">
@@ -13,72 +13,22 @@
   </div>
 </template>
 <script>
-import avatar1 from "@/assets/img/icon1.png";
-import avatar2 from "@/assets/img/icon2.png";
-import avatar3 from "@/assets/img/icon3.png";
-import avatar4 from "@/assets/img/icon4.png";
-import avatar5 from "@/assets/img/icon5.png";
-import avatar6 from "@/assets/img/icon6.png";
-import avatar7 from "@/assets/img/icon7.png";
-import avatar8 from "@/assets/img/icon8.png";
-
 export default {
   name: "HomeIcons",
-  data() {
+  props:{
+    list:Array
+  },
+  data () {
     return {
-      iconList: [
-        {
-          id: "0001",
-          imgUrl: avatar1,
-          desc: "景点门票"
-        },
-        {
-          id: "0002",
-          imgUrl: avatar2,
-          desc: "深圳必游"
-        },
-        {
-          id: "0003",
-          imgUrl: avatar3,
-          desc: "暑假夜场"
-        },
-        {
-          id: "0004",
-          imgUrl: avatar4,
-          desc: "深圳必游"
-        },
-        {
-          id: "0005",
-          imgUrl: avatar5,
-          desc: "海洋馆"
-        },
-        {
-          id: "0006",
-          imgUrl: avatar6,
-          desc: "广州融创"
-        },
-        {
-          id: "0007",
-          imgUrl: avatar7,
-          desc: "深圳动物园"
-        },
-        {
-          id: "0008",
-          imgUrl: avatar8,
-          desc: "世界之窗"
-        },
-        {
-          id: "0009",
-          imgUrl: avatar8,
-          desc: "东部华侨城"
-        }
-      ]
-    };
+      swiperOption: {
+       autoplay:false
+      }
+    }
   },
   computed:{
       pages () {
          const pages=[]
-         this.iconList.forEach((item,index)=>{
+         this.list.forEach((item,index)=>{
              const page=Math.floor(index/8);
              if(!pages[page]){
                  pages[page]=[]
