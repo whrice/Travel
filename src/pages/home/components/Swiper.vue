@@ -42,7 +42,7 @@ export default {
     width 100%
     height 0
     overflow  hidden
-    padding-bottom 26.5%   //保持宽高比自适应为32.5%
+    padding-bottom 32.5%   //保持宽高比自适应为32.5%
     .swiper-img
         width 100%
 </style>
