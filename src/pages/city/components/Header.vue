@@ -38,4 +38,5 @@ export default {
                margin-bottom .2rem
                box-sizing border-box
                overflow hidden
+               margin-left:-1px
 </style>  
