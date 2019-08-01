@@ -16,7 +16,7 @@
                  </div>
             </div>
         </div>
-        <div class="area" v-for='(item, key) of cities' :key="key">
+        <div class="area" v-for='(item, key) of cities' :key="key" :ref="key">
             <div class="title border-topbottom">{{key}}</div>
             <div class="item-list">
                 <div class="item border-bottom" v-for="innerItem of item" :key='innerItem.id'>
@@ -34,11 +34,21 @@ export default {
     name:'CityList',
     props:{
         hotcities:Array,
-        cities:Object
+        cities:Object,
+        letter:String
     },
     mounted(){
         console.log(this.props)
         this.scroll=new BScroll(this.$refs.wrapper)
+    },
+    watch:{
+       letter(){
+           if(this.letter){
+               const ele=this.$refs[this.letter][0];//获取到对应key值的区域
+               this.scroll.scrollToElement(ele) //自动滚动到某个元素的区域上
+           }
+           
+       }
     }
     
 }
@@ -66,12 +76,12 @@ export default {
             color:#666
             font-size .26rem
         .button-list 
-            padding 0rem .6rem .2rem .3rem
+            padding 0.16rem .6rem .16rem .3rem
             display flex
             flex-wrap wrap
             .button
                 border .02rem solid #ccc
-                padding: 0.04rem 0.6rem
+                padding: 0.14rem 0.6rem
                 border-radius .02rem
                 margin 0.2rem .2rem
                 text-align center
