@@ -9,7 +9,8 @@
         </div>
         <div class="search-content" ref='search' v-show='keyword'>
             <ul>
-                <li class='search-item' v-for="item of list" :key='item.id'>
+                <li class='search-item' v-for="item of list" :key='item.id' 
+                 @click="handleCityClick(item.name)">
                     {{item.name}}
                 </li>
                  <li class='search-item' v-show='hasnoData'>
@@ -66,6 +67,11 @@ export default {
     methods:{
         getCityInfo(){
                axios.get('/api/city.json').then(this.HandleGetCityInfoSucc)
+        },
+        handleCityClick(city){
+            console.log(city)
+         this.$store.dispatch('changeCity',city)
+         this.$router.push('/')
         },
          HandleGetCityInfoSucc(res){
            res=res.data
