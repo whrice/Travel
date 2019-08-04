@@ -3,7 +3,7 @@
          <city-header></city-header>
          <city-list :cities='cities' :hotcities='hotcities' :letter='letter'></city-list>
          <city-alpha :cities='cities' @change='handleChange'></city-alpha>
-         <city-search class='dev' :cities='cities'></city-search>
+        
     </div>
    
 </template>
@@ -51,7 +51,5 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.dev{
-    display none;
-}
+
 </style>

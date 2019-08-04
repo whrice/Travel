@@ -38,11 +38,12 @@ export default {
         letter:String
     },
     mounted(){
-        console.log(this.props)
+      
         this.scroll=new BScroll(this.$refs.wrapper)
     },
     watch:{
        letter(){
+          
            if(this.letter){
                const ele=this.$refs[this.letter][0];//获取到对应key值的区域
                this.scroll.scrollToElement(ele) //自动滚动到某个元素的区域上

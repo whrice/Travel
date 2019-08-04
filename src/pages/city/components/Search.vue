@@ -1,34 +1,57 @@
 <template>
     <div>
         <div class="search">
+            <router-link to='/'>
             <div class='icon iconfont back-icon'>&#xe632;</div>
+            </router-link>
             <input v-model='keyword' class='ipt' type="text" placeholder="输入城市或景点">
             <a href="" class='btn'>搜索</a>
         </div>
-        <div class="search-content"></div>
+        <div class="search-content" ref='search' v-show='keyword'>
+            <ul>
+                <li class='search-item' v-for="item of list" :key='item.id'>
+                    {{item.name}}
+                </li>
+                 <li class='search-item' v-show='hasnoData'>
+                     没有找到匹配数据
+                  
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 <script>
+import axios from 'axios'
+import Bscroll from 'better-scroll'
 export default {
     name:'CitySearch',
-    props:{
-      cities:Object
-    },
     data(){
         return {
           keyword:'',
           list:[],
-          timer:null
+          timer:null,
+          cities:{},
+        }
+    },
+    computed:{
+        hasnoData(){
+            return !this.list.length
         }
     },
     watch:{
         keyword(){
+            console.log(this.keyword)
+            console.log(this.cities)
             if(this.timer){
                 clearTimeout(this.timer)
             }
+            if(!this.keyword){
+                this.list=[];
+                return
+            }
             this.timer=setTimeout(()=>{
                  const result=[];
-                 for(let i in this.cities){
+                 for (let i in this.cities){
                     this.cities[i].forEach(value => {
                         if(value.spell.indexOf(this.keyword)>-1||value.name.indexOf(this.keyword)>-1){
                             result.push(value)
@@ -37,7 +60,26 @@ export default {
                  }
                  this.list=result
             },100)
+            
         }
+    },
+    methods:{
+        getCityInfo(){
+               axios.get('/api/city.json').then(this.HandleGetCityInfoSucc)
+        },
+         HandleGetCityInfoSucc(res){
+           res=res.data
+           if(res.ret&&res.data){
+               const data=res.data;
+               this.cities=data.cities;
+               this.hotcities=data.hotCities
+           }
+         
+       }
+    },
+    mounted(){
+         this.getCityInfo()
+         this.scroll=new Bscroll(this.$refs.search)
     }
 }
 </script>
@@ -72,5 +114,10 @@ export default {
     bottom 0
     overflow hidden
     position absolute
-    background green       
+    background #eee
+    .search-item
+        color:#666
+        background #fff
+        padding .2rem 0.4rem
+        line-height .4rem 
 </style>
