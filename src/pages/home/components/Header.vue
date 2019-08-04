@@ -3,10 +3,14 @@
     <div class="header-left">
       <span class='iconfont back-icon'>&#xe632;</span>
     </div>
+  
     <div class="header-input">
+        <router-link to='/search' class='color'>
       <span class='iconfont'>&#xe600;</span>
        输入城市/景点/游玩主题
+        </router-link>
       </div>
+     
       <router-link to='/city'>
       <div class="header-right">
         {{this.city}}
@@ -49,6 +53,8 @@ export default {
          padding-left .1rem
          min-width 3.68rem
          overflow hidden
+         .color
+            color #e4e7ea;
     .header-right
          float right
          width 1.24rem
