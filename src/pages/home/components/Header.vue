@@ -13,7 +13,7 @@
      
       <router-link to='/city'>
       <div class="header-right">
-        {{this.currentCity}}
+        <span class='text'>{{this.currentCity}}</span>
         <span  class='iconfont'>&#xe631;</span>
       </div>
       </router-link>
@@ -68,4 +68,7 @@ export default {
          padding 0 .1rem
          text-align center
          color #fff
+         .text
+             position:relative 
+             top:-.06rem
 </style>  

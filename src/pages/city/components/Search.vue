@@ -100,7 +100,8 @@ export default {
     background #fff 
     .icon
         width .4rem
-        line-height .5rem  
+        line-height .5rem 
+        color: black !important 
     .ipt       
         flex 1
         padding .12rem 0rem

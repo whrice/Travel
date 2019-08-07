@@ -5,7 +5,7 @@
       猜你喜欢
     </div>
     <div class="items">
-      <div class="place" v-for='item of  list' :key='item.id'>
+      <router-link tag='div' :to="'/detail/'+item.id" class="place" v-for='item of  list' :key='item.id'>
         <div class="like-img">
           <img :src='item.imgUrl' alt />
         </div>
@@ -14,8 +14,8 @@
             <div class="info-des">{{item.desc}}</div>
             <div class="info-btn">查看详情</div>
         </div>
-        
-      </div>
+      </router-link>
+     
     </div>
   </div>
 </template>
