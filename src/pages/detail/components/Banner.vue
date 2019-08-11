@@ -3,7 +3,7 @@
     <div class='banner' @click="handleBannerClick">
         <img class='banner-img' src="/static/img/banner/p1.jpg" alt="">
         <div class='banner-info'>  
-        <router-link tag='div' to='/' class='back iconfont'>&#xe634;</router-link>
+        <!--<router-link tag='div' to='/' class='back iconfont'>&#xe634;</router-link>-->
         <div class="info-tit">深圳欢乐谷(AAAAA景区)</div>
         <div class="info-icon">
         <span class='iconfont back-icon'>&#xe635;</span>
@@ -49,13 +49,6 @@ export default {
     position relative
     .banner-img
         width 100%
-    .back
-        position absolute
-        top .14rem
-        padding .12rem
-        background: rgba(0,0,0,.5);
-        border-radius 50%
-        left .14rem
     .info-tit
         color red
         position absolute

@@ -46,7 +46,7 @@ export default {
         width .64rem
         float left       
         .back-icon
-            font-size .4rem
+            font-size 30px;
     .header-input
          flex:1
          height .62rem

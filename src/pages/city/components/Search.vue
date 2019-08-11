@@ -100,7 +100,7 @@ export default {
     background #fff 
     .icon
         width .4rem
-        line-height .5rem 
+        font-size 30px
         color: black !important 
     .ipt       
         flex 1
@@ -109,7 +109,7 @@ export default {
         background: #f2f2f2
         border-radius .2rem
         font-size .28rem
-        margin 0 .2rem
+        margin 0 .4rem
         font-family: "Microsoft Yahei",Arial;
     .btn
        color: black
