@@ -29,7 +29,8 @@ export default {
         handlScroll (){
             const top=document.documentElement.scrollTop;
             if(top>60){
-                const opacity=top/140
+                let opacity=top/140
+                opacity=opacity>1?1:opacity
                 this.opacityStyle={
                     opacity
                 }
@@ -41,6 +42,9 @@ export default {
     },
     activated () {
      window.addEventListener('scroll',this.handlScroll)       
+     },
+     deactivated (){
+         window.removeEventListener('scroll',this.handlScroll)
      }
 }
 </script>
