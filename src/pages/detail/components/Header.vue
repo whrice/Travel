@@ -27,6 +27,7 @@ export default {
     },
     methods:{
         handlScroll (){
+            console.log('222')
             const top=document.documentElement.scrollTop;
             if(top>60){
                 let opacity=top/140
@@ -40,12 +41,14 @@ export default {
             }
         }
     },
-    activated () {
+     mounted() {
      window.addEventListener('scroll',this.handlScroll)       
      },
-     deactivated (){
-         window.removeEventListener('scroll',this.handlScroll)
-     }
+    beforeDestroy () {
+        console.log('1111')
+        window.removeEventListener('scroll',this.handleScroll)
+       console.log('3333')
+  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -61,6 +64,7 @@ export default {
     top 0
     left 0
     right 0
+    z-index 100
     .header
         background-color #00bcd4
         position relative

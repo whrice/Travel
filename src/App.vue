@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <keep-alive exclude="Detail">
    <router-view/>
     </keep-alive>
     <!--keep-alive会从内存中读取数据，而不重新发请求-->
